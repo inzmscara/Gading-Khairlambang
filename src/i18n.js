@@ -261,7 +261,7 @@ export const STRINGS = {
       kicker: "Profil",
       titleA: "Dulu saya menulis kodenya. ",
       titleB: "Sekarang saya memastikannya berfungsi.",
-      story1lead: "Saya Gading, QA Engineer di Ordonesia",
+      story1lead: "Saya Khoirul, QA Engineer di Ordonesia",
       story1rest:
         ", Bandung. Keseharian saya memastikan implementasi Odoo benar-benar berjalan: menulis test case, berburu bug, dan mengotomatisasi hal-hal membosankan dengan Cypress dan Playwright.",
       story2:

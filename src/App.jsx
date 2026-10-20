@@ -11,7 +11,7 @@ import Work from "./components/views/Work";
 import Path from "./components/views/Path";
 import Contact from "./components/views/Contact";
 import { VIEW_ORDER, VIEW_PATHS, viewFromPath } from "./routes";
-import { STRINGS, LANG_KEY, initialLang } from "./i18n";
+import { STRINGS } from "./i18n";
 
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -29,7 +29,7 @@ export default function App() {
   const [entering, setEntering] = useState(null);
   const [introRise, setIntroRise] = useState(false);
   const [cover, setCover] = useState({ label: "", count: "", phase: "idle" });
-  const [lang, setLang] = useState(initialLang);
+  const [lang, setLang] = useState('en');
   const t = STRINGS[lang];
 
   const viewRef = useRef(view);
@@ -99,7 +99,7 @@ export default function App() {
         String(idx + 1).padStart(2, "0") +
         " / " +
         String(VIEW_ORDER.length).padStart(2, "0");
-      setCover({ label: t.transition[name], count, phase: "covering" });
+      setCover({ label: STRINGS.en.transition[name], count, phase: "covering" });
       later(() => {
         setCover((c) => ({ ...c, phase: "holding" }));
       }, 2900); // panel naik 900ms + jeda 2000ms sebelum teks muncul
@@ -144,14 +144,8 @@ export default function App() {
     document.body.classList.toggle("menu-open", menuOpen);
   }, [menuOpen]);
 
-  // persist language + keep <html lang> correct
   useEffect(() => {
     document.documentElement.lang = lang;
-    try {
-      localStorage.setItem(LANG_KEY, lang);
-    } catch {
-      /* storage unavailable */
-    }
   }, [lang]);
 
   // Escape closes the overlay
@@ -187,9 +181,10 @@ export default function App() {
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
         onNav={handleNav}
-        t={t.menu}
-        navLinks={t.nav.links}
+        t={STRINGS.en.menu}
+        navLinks={STRINGS.en.nav.links}
       />
+
       <main className="page-stage">
         <Home
           active={view === "home"}
@@ -225,7 +220,7 @@ export default function App() {
       {!introGone && (
         <Intro
           onFinish={() => setIntroGone(true)}
-          t={t.intro}
+          t={STRINGS.en.intro}
           onLiftStart={() => {
             setIntroRise(true);
             // covers the masked headline reveal + staggered fade-ups (~1.6s)
