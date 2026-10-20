@@ -8,13 +8,13 @@ const LINKS = [
   {
     n: '01',
     label: 'GitHub',
-    value: 'mieramensatu',
-    href: 'https://github.com/mieramensatu',
+    value: 'inzmscara',
+    href: 'https://github.com/inzmscara',
   },
   {
     n: '02',
     label: 'LinkedIn',
-    value: 'gading-khairlambang-9a9223241',
+    value: 'Gading-Khairlambang',
     href: 'https://www.linkedin.com/in/gading-khairlambang-9a9223241',
   },
   {
